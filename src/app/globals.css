@@ -5,6 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-poppins: 'Poppins', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,8 +15,35 @@
   }
 }
 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins);
+  font-weight: 100;
+}
+
+.text-xlarge {
+  font-size: 3rem;
+}
+
+.text-large {
+  font-size: 2rem;
+}
+.text-medium {
+  font-size: 1.5rem;
+}
+.text-regular {
+  font-size: 1rem;
+}
+.text-small {
+  font-size: 0.5rem;
 }
