@@ -4,27 +4,27 @@ import React from "react";
 import Link from "next/link";
 
 export default function CourseCardCompact({
-    courseId,
-    courseName,
+    id,
+    name,
     startDate,
     endDate,
     primaryInstructor,
     secondaryInstructor,
     }: {
-    courseId: string;
-    courseName: string;
+    id: string;
+    name: string;
     startDate: string;
     endDate: string;
     primaryInstructor: string;
     secondaryInstructor: string;
     }) {
     return (
-        <Link href="/courses/[id]" as={`/courses/${courseId}`}>
+        <Link href="/courses/[id]" as={`/courses/${id}`}>
             <div className="max-w-xs justify-center">
                 <div className="p-2 justify-center w-full">
-                        <h3 className="text-center text-xl text-gray-500 font-medium leading-8">{courseName}</h3>
-                        <div className="text-center text-gray-400 text-xs font-semibold">
-                            <p>{courseId}</p>
+                        <h3 className="text-center text-regular text-white font-medium leading-8">{name}</h3>
+                        <div className="text-center text-white text-regular">
+                            <p>{id}</p>
                         </div>
                         <table className="text-xs my-3 w-full">
                             <tbody>

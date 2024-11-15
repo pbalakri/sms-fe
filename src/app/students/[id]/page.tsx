@@ -3,8 +3,17 @@ import { useRef } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import './styles.css';
 import StudentCardFull from '@/components/card/student/student-card-large';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import GuardianCardCompact from '@/components/card/guardian/guardian-card-small';
+import CourseCardCompact from '@/components/card/course/course-card-small';
 
 export default function Home() {
+  const { data: session } = useSession();
+  const router = useRouter();
+  if (!session) {
+    router.push('/login');
+  }
   const tabListRef = useRef<HTMLUListElement>(null);
 
   const handleSelect = (index: number) => {
@@ -28,6 +37,7 @@ export default function Home() {
           <Tab>Courses</Tab>
           <Tab>ECA</Tab>
           <Tab>Schedule</Tab>
+          <Tab>Attendance</Tab>
           <Tab>Performance</Tab>
         </TabList>
         
@@ -35,35 +45,18 @@ export default function Home() {
           <StudentCardFull registrationId={''} name={'Smitten Monkey'} gradeClass={0} dateOfBirth={''} email={''} />
         </TabPanel>
         <TabPanel>
-          <p>
-            <b>Luigi</b> (<i>Japanese: ルイージ Hepburn: Ruīji, [ɾɯ.iː.dʑi̥]</i>) (<i>English: /luˈiːdʒi/;
-            Italian: [luˈiːdʒi]</i>) is a fictional character featured in video games and related media
-            released by Nintendo. Created by prominent game designer Shigeru Miyamoto, Luigi is portrayed
-            as the slightly younger but taller fraternal twin brother of Nintendo's mascot Mario, and
-            appears in many games throughout the Mario franchise, often as a sidekick to his brother.
-          </p>
-          <p>
-            Source:{' '}
-            <a href="https://en.wikipedia.org/wiki/Luigi" target="_blank">
-              Wikipedia
-            </a>
-          </p>
+          <div className="grid md:grid-cols-2 sm:grid-cols-2 gap-4 m-4">
+            <CourseCardCompact name="Mathematics" id="MATH" primaryInstructor="John Doe" secondaryInstructor='' startDate='01/01/1981' endDate='01/02/1981' />
+            <CourseCardCompact name="English" id="MATH" primaryInstructor="John Doe" secondaryInstructor='' startDate='01/01/1981' endDate='01/02/1981' />
+            <CourseCardCompact name="Physics" id="MATH" primaryInstructor="John Doe" secondaryInstructor='' startDate='01/01/1981' endDate='01/02/1981' />
+            <CourseCardCompact name="Botany" id="MATH" primaryInstructor="John Doe" secondaryInstructor='' startDate='01/01/1981' endDate='01/02/1981' />
+          </div>
         </TabPanel>
         <TabPanel>
-          <p>
-            <b>Princess Peach</b> (<i>Japanese: ピーチ姫 Hepburn: Pīchi-hime, [piː.tɕi̥ çi̥.me]</i>)
-            is a character in Nintendo's Mario franchise. Originally created by Shigeru Miyamoto,
-            Peach is the princess of the fictional Mushroom Kingdom, which is constantly under
-            attack by Bowser. She often plays the damsel in distress role within the series and
-            is the lead female. She is often portrayed as Mario's love interest and has appeared
-            in Super Princess Peach, where she is the main playable character.
-          </p>
-          <p>
-            Source:{' '}
-            <a href="https://en.wikipedia.org/wiki/Princess_Peach" target="_blank">
-              Wikipedia
-            </a>
-          </p>
+        <div className="grid md:grid-cols-2 sm:grid-cols-2 gap-4 m-4">
+            <CourseCardCompact name="Basketball" id="MATH" primaryInstructor="John Doe" secondaryInstructor='' startDate='01/01/1981' endDate='01/02/1981' />
+            <CourseCardCompact name="Duke Of Edinburgh" id="MATH" primaryInstructor="John Doe" secondaryInstructor='' startDate='01/01/1981' endDate='01/02/1981' />
+          </div>
         </TabPanel>
         <TabPanel>
           <p>

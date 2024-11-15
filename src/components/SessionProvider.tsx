@@ -4,7 +4,9 @@
 import { SessionProvider as NextAuthSessionProvider, useSession } from 'next-auth/react';
 import Nav from './left-nav';
 
-export default function SessionProvider({ children }) {
+import { ReactNode } from 'react';
+
+export default function SessionProvider({ children }: { children: ReactNode }) {
   return <NextAuthSessionProvider><AuthWrapper>{children}</AuthWrapper></NextAuthSessionProvider>;
 }
 

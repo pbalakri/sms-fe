@@ -1,10 +1,16 @@
-import StudentCardFull from "@/components/card/student/student-card-large";
+"use client";
 import StudentCardCompact from "@/components/card/student/student-card-small";
-import Image from "next/image";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { FaPlus } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const { data: session } = useSession();
+  const router = useRouter();
+  if (!session) {
+    router.push('/login');
+  }
   return (
     <div>
       <Link href="/students/create" className="absolute top-4 right-4 text-gray-500 hover:text-white">

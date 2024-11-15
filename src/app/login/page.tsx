@@ -31,7 +31,7 @@ export default function LoginPage() {
       <h2 className="text-center text-xlarge">Login</h2>
         {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
         <div className="mb-6">
-          <label className="block text-gray-500 font-medium mb-2">Username</label>
+          <label className="block text-gray-400 mb-2">Username</label>
           <input
             type="text"
             value={username}
@@ -41,7 +41,7 @@ export default function LoginPage() {
           />
         </div>
         <div className="mb-6">
-          <label className="block text-gray-500 font-medium mb-2">Password</label>
+          <label className="block text-gray-400 mb-2">Password</label>
           <input
             type="password"
             value={password}

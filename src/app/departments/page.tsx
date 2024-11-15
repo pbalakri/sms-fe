@@ -1,7 +1,6 @@
 "use client";
 import DepartmentCardCompact from "@/components/card/department/department-card-small";
 import { useSession } from "next-auth/react";
-import Image from "next/image";
 
 export default function Home() {
   const { data: session } = useSession();

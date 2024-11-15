@@ -52,14 +52,8 @@ export default function Nav() {
             Students
           </Link>  
           <div className={`pl-4 ${isActive("/students") ? "block" : "hidden"}`}>
-            <Link href="/home/sub1" className="block text-gray-500 text-medium hover:text-white">
-              Admission
-            </Link>
-            <Link href="/home/sub2" className="block text-gray-500 text-medium hover:text-white">
-              Tuition
-            </Link>
-            <Link href="/home/sub2" className="block text-gray-500 text-medium hover:text-white">
-              Attendance
+            <Link href="/students/create" className="block text-gray-500 text-medium hover:text-white">
+              New
             </Link>
           </div>
         </div>
@@ -99,15 +93,16 @@ export default function Nav() {
         <Link href="/payroll" className="block text-gray-500 text-large hover:text-white">
           Payroll
         </Link>
-      </div>
-      <div className="p-4">
+        <div className="py-4">
           <button
             onClick={() => signOut({ callbackUrl: 'http://localhost:3001/login' })}
             className="block w-full text-left text-gray-500 text-large hover:text-white"
           >
             Logout
           </button>
-        </div>
+      </div>
+      </div>
+      
     </nav>
   );
 }
